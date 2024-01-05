@@ -1,11 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
-import { boocksModel } from "./models/Books.js";
+import { router } from "./routes/books.routes.js";
+import { userRouter } from "./routes/users.router.js";
 import dotenv from "dotenv";
 
 dotenv.config();
-
-console.log(process.env.MONGODB_CONNECT_URL);
 
 mongoose
   .connect(process.env.MONGODB_CONNECT_URL)
@@ -24,16 +23,8 @@ app.get("/", (req, res) => {
   res.send("hello");
 });
 
-app.get("/books", async (req, res) => {
-  boocksModel
-    .find()
-    .then(function (books) {
-      res.json(books);
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
-});
+app.use("/books", router);
+app.use("/users", userRouter);
 
 const PORT = process.env.PORT;
 

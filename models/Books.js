@@ -13,9 +13,9 @@ const booksSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  genres: {
-    type: Object,
-  },
+  genres: [{ type: String }],
 });
 
-export const boocksModel = mongoose.model("books", booksSchema);
+const booksModel = mongoose.model("books", booksSchema);
+
+export default booksModel;
