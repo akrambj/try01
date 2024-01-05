@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import { router } from "./routes/books.routes.js";
 import { userRouter } from "./routes/users.router.js";
 import dotenv from "dotenv";
+import { appointmentsRouter } from "./routes/appontments.routess.js";
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
 
 app.use("/books", router);
 app.use("/users", userRouter);
+app.use("/appointments", appointmentsRouter);
 
 const PORT = process.env.PORT;
 
