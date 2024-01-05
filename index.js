@@ -35,6 +35,8 @@ app.get("/books", async (req, res) => {
     });
 });
 
-app.listen(4000, () => {
-  console.log("Server is Listening on port 3000");
+const PORT = process.env.PORT;
+
+app.listen(PORT, () => {
+  console.log("Server is Listening on port", PORT);
 });
