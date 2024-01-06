@@ -16,3 +16,6 @@ const appointmentSchema = new mongoose.Schema({
 const appointmentsModel = mongoose.model("appointments", appointmentSchema);
 
 export default appointmentsModel;
+
+//       "startDate": "2024-01-06T12:00:00Z",
+// "endDate": "2024-01-06T12:20:00Z"
